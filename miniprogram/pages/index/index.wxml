@@ -1,0 +1,13 @@
+<!--pages/index/index.wxml-->
+<view class="cover">
+
+<image class="bg" mode="widthfix" src="/images/cat.png"></image>
+</view>
+<view class="ziti" >Hi，你好呀，我是小猫咪</view>
+  <view class="ziti">欢迎来到喵呜的家!</view>
+<view class="choose">
+<navigator class="join" url="/pages/form/index">创建小组</navigator>
+<navigator class="join" url="/pages/list/list">加入小组</navigator>
+<navigator class="join" url="/pages/tip/index">其他小组</navigator>
+<navigator class="join" url="/pages/group/index">我的小组</navigator>
+</view>

@@ -1,0 +1,54 @@
+<!--先写一个表单页，form标签包裹起来，它接收一个属性bindsubmit，翻译一下就是绑定提交，就是填写完资料，点击提交的时候会触发绑定函数，我们设置为submit-->
+<view class="body">
+  <form bindsubmit="submit">
+  <view class="section">
+    <view class="title">昵称：</view>
+    <input type="nickname" class="input" name="nickname" placeholder="昵称"/>
+  </view>
+
+<view class="section">
+  <view class="title">性别：</view>
+  <radio-group class="mg" name="gender">
+    <label>
+      <radio value="nan" />
+      男
+    </label>
+    <label>
+      <radio value="nv" />
+      女
+    </label>
+  </radio-group>
+</view>
+<!--年龄选择，日期选择器，picker标签，mode模式，date日期，字段只要年份就行了-->
+     <view class="section">
+      <view class="title">年龄：</view>
+     <picker bindchange="dateChange" fields="year" value="{{date}}" mode="date" class="input" name="date">
+     <view class="picker">出生年：{{date}}</view>
+       </picker>
+     </view>
+<!--这里的name和value就好比是变量名和变量值
+例如在c中我们定义：int a = 1;
+如果在html中，就是name="a",value="1"-->
+     <view class="section">
+      <view class="title">地区：</view>
+     <picker bindchange="regionChange" value="{{region}}" mode="region" level="province" class="input" name="region">
+     <view class="picker">当前选择：{{region}}</view>
+       </picker>
+     </view>
+<!--input填写方式-->
+<view class="section">
+   <view class="title">可以添加到你的联系方式：</view>
+  <input class="input" name="code" placeholder="以防小组成员加不到你"/>
+  </view>
+<!--textarea 多行输入标签-->
+  <view class="section">
+  <view class="title">你的基础情况：</view>
+  <textarea style="height:100rpx" class="input" name="info" placeholder="介绍一下你的基础情况"/>
+  </view>
+  <!--放两个按钮，提交和重置formtype表单类型，设置为提交submit和重置reset即可-->
+  <view class="area">
+  <button style="margin:30rpx;" type="primary" formType="submit">提交</button>
+  <button style="margin:30rpx 0" formType="reset">重置</button>
+  </view>
+  </form>
+</view>

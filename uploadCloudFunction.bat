@@ -1,0 +1,1 @@
+"D:\wechat\΢��web�����߹���\cli.bat" cloud functions deploy --e cloud1-0gxb7kag8554dfb6 --n quickstartFunctions --r --project "D:\wechat\daima" --report_first --report
