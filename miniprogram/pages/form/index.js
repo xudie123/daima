@@ -16,7 +16,6 @@ Page({
  }
  },
  submit:function(e){
-console.log(this.data.groupId)
   let u = e.detail.value;
   if (this.data.groupId){
     wx.cloud.callFunction({

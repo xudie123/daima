@@ -14,35 +14,35 @@ module.exports = async (event) => {
     let openId = wxContext.OPENID;
     // 防止加入两个小组
     let exist = await db
-      .collection("form")
+      .collection("test-form")
       .where({
         _openid: openId,
       })
       .get();
-   
-      if (exist.data[0] && exist.data[0].groupId) {
-        return {
-          success: false,
-          errorMessage: "已有小组",
-        };
-      }
+    if (exist.data[0] && exist.data[0].groupId) {
+      return {
+        success: false,
+        errorMessage: "已有小组",
+      };
+    }
+
     // 有可能在填写时就加满了，要先查一下
     let res = await db
-      .collection("group")
+      .collection("test-group")
       .where({
         groupId: u.groupId,
       })
       .get();
-      if ((res.data[0].member || 1) > 5) {
-        return {
-          success: false,
-          errorMessage: "填写信息时小组已满",
-        };
-      }
+    if ((res.data[0].member || 1) > 5) {
+      return {
+        success: false,
+        errorMessage: "填写信息时小组已满",
+      };
+    }
 
     // 更新小组成员数量
     await db
-      .collection("group")
+      .collection("test-group")
       .where({
         groupId: u.groupId,
       })
@@ -51,7 +51,7 @@ module.exports = async (event) => {
           member: _.inc(1),
         },
       });
-    await db.collection("form").add({
+    await db.collection("test-form").add({
       data: {
         nickname: u.nickname,
         gender: u.gender === "nv",
